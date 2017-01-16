@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load staticfiles%}
+
+{% block content %}
+<h3>Opened Chats</h3>
+<ul class="list-group">
+    {% for user, chat in users_with_chat.items %}
+    <li class="list-group-item"><a href="/{{ user_id }}/{{ chat.id }}">{{ user.username }}</a><span class="badge">12</span></li>
+    {% endfor %}
+</ul>
+
+<h3>Other Users</h3>
+<ul class="list-group">
+    {% for user in users_without_chat %}
+    <li class="list-group-item"><a href="create_chat/{{ user.id }}">{{ user.username }}</a><span class="badge">12</span></li>
+    {% endfor %}
+</ul>
+{% endblock %}
